@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <style>
+      center {
+        font-size: 40px;
+        font-weight: 800;
+        margin: 10px 0px;
+      }
+      .container {
+        width: 300px;
+        border: 3px solid black;
+      }
+      .btn {
+        width: 45px;
+        height: 45px;
+        padding: 10px;
+        font-weight: 500;
+        margin: 10px;
+      }
+      #sb {
+        padding: 10px;
+        width: 100px;
+        margin: 10px 100px;
+        border-radius: 10px;
+        font-weight: 800;
+      }
+      input {
+        width: 250px;
+        font-size: 20px;
+        margin: 5px;
+        padding: 10px;
+        border: 3px solid black;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <center>Calculator</center>
+      <hr />
+      <input type="text" id="in" placeholder="Enter to calculate" />
+      <hr />
+      <div>
+        <button class="btn" onclick="handleClick(1)">1</button>
+        <button class="btn" onclick="handleClick(2)">2</button>
+        <button class="btn" onclick="handleClick(3)">3</button>
+        <button class="btn" onclick="handleClick(4)">4</button>
+        <button class="btn" onclick="handleClick(5)">5</button>
+        <button class="btn" onclick="handleClick(6)">6</button>
+        <button class="btn" onclick="handleClick(7)">7</button>
+        <button class="btn" onclick="handleClick(8)">8</button>
+        <button class="btn" onclick="handleClick(9)">9</button>
+        <button class="btn" onclick="handleClick(0)">0</button>
+        <button class="btn" onclick="handleClick('+')">+</button>
+        <button class="btn" onclick="handleClick('-')">-</button>
+        <button class="btn" onclick="handleClick('*')">*</button>
+        <button class="btn" onclick="handleClick('/')">/</button>
+        <button class="btn" onclick="handleClick('C')">C</button>
+      </div>
+      <button id="sb" onclick="handleClick('sb')">Calculate</button>
+    </div>
+
+    <script>
+      let exp = "";
+
+      function handleClick(btnValue) {
+        // const btn = document.getElementsByClassName("btn")[0].textContent;
+        // console.log(btn);
+
+        if (btnValue === "C") {
+          document.getElementById("in").value = "";
+        } else if (btnValue === "sb") {
+          const ans = eval(exp);
+
+          document.getElementById("in").value = "";
+          document.getElementById("in").value = `${ans}`;
+          exp = "";
+        } else {
+          exp += btnValue;
+          document.getElementById("in").value = "";
+          document.getElementById("in").value = `${exp}`;
+        }
+      }
+    </script>
+  </body>
+</html>

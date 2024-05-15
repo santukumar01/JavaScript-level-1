@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Variable</title>
+    <style>
+      #btn-w {
+        border: 2px solid black;
+        border-radius: 10px;
+        padding: 5px 20px;
+      }
+      .btn-b {
+        border: none;
+        padding: 5px 20px;
+        background-color: rgb(238, 159, 159);
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <button
+        class="btn-b"
+        onclick="
+      item++;
+      document.querySelector('#para').innerHTML = `your bahg item is : ${item}` ;"
+      >
+        Add to Bag
+      </button>
+      <button id="btn-w">MOVE TO WISHLIST</button>
+      <button class="btn-b" onclick="handleClick()">Add 1+1 sale item</button>
+      <hr />
+      <p id="para"></p>
+    </main>
+  </body>
+  <script>
+    // page  19 20 21 22 23
+    // naming rule and convention for variable
+    // updateing a varriable
+    // let keyword
+
+    let item = 9;
+    document.querySelector("#para").innerHTML = `your bahg item is : ${item}`;
+    function handleClick() {
+      console.log("clicked");
+      item++;
+      document.querySelector("#para").innerHTML = `your bahg item is : ${item}`;
+    }
+
+    console.log("clicked outside");
+
+    //ways to create a variable page 24
+
+    // var , let , const
+    // var -> redeclaration and updating value ,  functional level scope
+    // let -> only update , block level scope
+    // const -> dosnot change nor redcalre
+    function varExample() {
+      var x = 10;
+      if (true) {
+        var x = 20; // This will overwrite the outer variable
+        console.log(x); // Output: 20
+      }
+      console.log(x); // Output: 20
+    }
+
+    varExample();
+
+    function letExample() {
+      let x = 10;
+      if (true) {
+        let x = 20; // This creates a new variable x local to this block
+        console.log(x); // Output: 20
+      }
+      console.log(x); // Output: 10
+    }
+
+    letExample();
+  </script>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let product = {
+        name: "tshirts",
+        price: 4000,
+      };
+
+      console.log(typeof product);
+      //   dont save sensetive data in this
+      //   JSON -> javacsript object Notation
+      //   Json caneasily convert to string for sending data
+
+      //   strigify convert and JSON/Js object to string
+      const strProduct = JSON.stringify(product);
+
+      //   console.log(typeof strProduct);
+      //  JSON.parse() -> convert and return JSON from string
+      const newProduct = JSON.parse(strProduct);
+
+      //   console.log(newProduct);
+      //   console.log(typeof newProduct);
+
+      //   savinng and update to local; storage  (both key and vlaue are string like JSON)
+      localStorage.setItem("users", strProduct);
+
+      const localProduct = localStorage.getItem("users");
+      console.log(typeof localProduct);
+      //   console.log( localProduct.name);  //undefined->  since this is not an object this is a string
+
+      const localProObject = JSON.parse(localProduct);
+      console.log(localProObject);
+      //   console.log(localProObject.name);
+
+      //   removing an specific item
+      //   localStorage.setItem("price", "3000");
+      //   localStorage.removeItem("price");
+
+      //   cler the localstorage
+      //   localStorage.clear();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cricket</title>
+    <style>
+      body {
+        text-align: center;
+      }
+      #container {
+        border: 2px solid black;
+        border-radius: 10px;
+        padding: 10px;
+        width: 400px;
+        display: block;
+        margin: auto;
+      }
+      .btn {
+        width: 70px;
+        border: none;
+        background-color: rgb(228, 118, 118);
+        border-radius: 10px;
+        padding: 10px;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h2>Cricket Game</h2>
+      <button class="btn" onclick="handleClick('Bat')">Bat</button>
+      <button class="btn" onclick="handleClick('Ball')">Ball</button>
+      <button class="btn" onclick="handleClick('Stump')">Stump</button>
+    </div>
+
+    <script>
+      function computerSecl() {
+        // selection make by computer
+
+        const selection = Math.floor(Math.random() * 3);
+
+        //0 - Bat , 1 -> Ball , 2 -> stump
+        if (selection === 0) {
+          return "Bat";
+        } else if (selection === 1) {
+          return "Ball";
+        } else if (selection === 2) {
+          return "Stump";
+        }
+      }
+
+      function handleClick(btnValue) {
+        let userSelevtion = btnValue;
+        const computerSeletion = computerSecl();
+
+        if (userSelevtion === computerSeletion) {
+          alert(
+            `your choice ${userSelevtion} and coputer choice ${computerSeletion} , Thus A Tie `
+          );
+        } else if (
+          (userSelevtion === "Bat" && computerSeletion === "Ball") ||
+          (userSelevtion === "Ball" && computerSeletion === "Stump") ||
+          (userSelevtion === "Stump" && computerSeletion === "Bat")
+        ) {
+          alert(
+            `your choice ${userSelevtion} and coputer choice ${computerSeletion} , User Won`
+          );
+        } else {
+          alert(
+            `your choice ${userSelevtion} and coputer choice ${computerSeletion} , Computer Won`
+          );
+        }
+      }
+    </script>
+  </body>
+</html>

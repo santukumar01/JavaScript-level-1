@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ClassList</title>
+  </head>
+  <body>
+    <button class="my_btn">Button</button>
+
+    <script>
+      // return HTML array
+      const cls = document.querySelector("button").classList;
+
+      //   adding a classname
+      document.querySelector("button").classList.add("my-btn-2");
+
+      //removing a classname
+      document.querySelector("button").classList.remove("my_btn");
+    </script>
+  </body>
+</html>

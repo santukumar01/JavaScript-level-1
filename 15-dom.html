@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practise</title>
+    <style>
+      body {
+        text-align: center;
+      }
+      #my-Btn {
+        width: 100px;
+        padding: 5px 3px;
+        border: 2px solid black;
+        border-radius: 10px;
+      }
+
+      .back1 {
+        background-color: yellowgreen;
+      }
+
+      .back2 {
+        background-color: grey;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="my-Btn" onclick="handleClick()"></button>
+
+    <script>
+      const button = document.querySelector("button");
+
+      const btnObject = JSON.parse(localStorage.getItem("BtnObj")) || {
+        clickCount: 0,
+      };
+
+      button.innerText = btnObject.clickCount;
+
+      const handleClick = () => {
+        btnObject.clickCount++;
+        handlePressed();
+      };
+
+      function handlePressed() {
+        button.innerText = btnObject.clickCount;
+
+        if (btnObject.clickCount % 2 === 0) {
+          button.classList.remove("back2");
+          button.classList.add("back1");
+        } else {
+          button.classList.remove("back1");
+          button.classList.add("back2");
+        }
+
+        localStorage.setItem("BtnObj", JSON.stringify(btnObject));
+      }
+      handlePressed();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array</title>
+  </head>
+  <body></body>
+  <script>
+    // declareation of arr
+    // let arr = [1, 2, 3, 10, 4, 5];
+    // console.log(arr[0]);
+    // console.log(typeof arr);
+    // console.log(Array.isArray(arr));
+
+    // console.log(arr.length);
+
+    // push and pop -> works on last element
+    // arr.push return length
+    // const val = arr.push(10);
+    // console.log(val);
+    // console.log(arr);
+
+    // const popedvalue = arr.pop(10);
+    // console.log(popedvalue);
+    // console.log(arr);
+
+    // shift(remove from first index) and unshift
+
+    // const poedValue = arr.shift(10);
+    // console.log(poedValue);
+    // console.log(arr);
+
+    // const unshiftedValue = arr.unshift(10);
+    // console.log(unshiftedValue); // returning length
+    // console.log(arr);
+
+    // sort function also return  sorted arr
+    // let numbers = [8, 7, 6, 5, 9, 2, 1];
+    // const sortedNumber = numbers.sort();
+    // console.log(sortedNumber);
+    // console.log(numbers);
+    // console.log(numbers === sortedNumber);//true
+
+    // sortedNumber[0] = 10;
+    // console.log(numbers);
+
+    // splice methgod  -> chnage original arr -> (index , length)
+    // let numbers = [8, 7, 6, 5, 9, 2, 1];
+    // console.log(numbers[-1]);  //undefined
+    // const spliedArrary = numbers.splice(4, 2);
+    // const spliedArrary = numbers.splice(-4, 2);  // [5 , 9 are elemnated]
+    // console.log(spliedArrary);
+    // console.log(numbers);
+
+    // tostring() -> convert array to string with comma but ommit both [] , not chnaging original arr
+    // let numbers = [8, 7, 6, 5, 9, 2, 1];
+    // let stringArrary = numbers.toString();
+    // console.log(numbers);
+    // console.log(stringArrary.charAt(3));   // ,
+    // console.log(typeof stringArrary);
+    // console.log(numbers.toString());
+
+    // In other words, it returns a reference to the array object, rather than the elements contained within the array.
+    // let numbers = [8, 7, 6, 5, 9, 2, 1];
+    // let otherArrary = numbers.valueOf();
+    // console.log(otherArrary);
+    // console.log(otherArrary === numbers);//true
+
+    // slice method  -> doest not change thje original array  , slice (index , index)
+    // let numbers = [8, 7, 6, 5, 9, 2, 1];
+    // const slicedArray = numbers.slice(2, 3);
+    // console.log(slicedArray);
+    // console.log(numbers);
+
+    // copy an array using slice
+
+    // let copyArray = numbers.slice(0, numbers.length);
+    // console.log(copyArray);
+
+    // arr.join  -> oriign la arr not changing
+    // let numbers = [8, 7, 6, 5, 9, 2, 1];
+
+    // const otherArray = numbers.join("+");
+    // console.log(typeof otherArray); //string
+    // console.log(numbers);
+  </script>
+</html>

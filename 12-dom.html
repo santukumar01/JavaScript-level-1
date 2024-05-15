@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+      <p style="visibility: hidden">This text will be hidden.</p>
+    </div>
+
+    <script>
+      /*
+      console.log(document); // gives all HTML page
+      console.log(document.location); //where is your page
+      console.log(document.title); //gives title
+      document.title = "XYz"; //change in title
+
+      console.log(document.domain); //127.0.0.1
+       */
+      //   innnerText , innerHTML , textContent
+
+      // innerHTML ->  it reads both the HTML markup and the text content of the element(include HTML tags, and the browser will render them correctly.)
+      // innerText -> the text as it appears on screen.  ignores HTML tags.
+      // textContent -> ignores HTML tags Whiles innerText reads text as it is rendered on screen, textContent reads text as it is in the markup.
+
+      const para = document.querySelector("div");
+      para.innerHTMl = "<h1>This is from          innerHTML</h1>"; //only reads as string
+      console.log(para.innerHTML);
+
+      //   para.innerHTML = "<h1>This is from innerHTML</h1>";
+
+      console.log(para.innerText);
+
+      console.log(para.textContent);
+      //   para.textContent = "<h1>This is from innerHTML</h1>"; // same as innerText but reads how extly in dom(like  reads spaced and hiiden contetn)
+
+      // innerHTML -> content + HTML tags +space + hidden item in Dom
+      // textContent -> content + space + hidden item in Dom
+      // innerText -> reads only Text
+
+      /*
+      //innerHTML
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+      <p style="visibility: hidden">This text will be hidden.</p>
+      //innerText
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+      //TextContentr
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+      This text will be hidden.
+      */
+    </script>
+  </body>
+</html>

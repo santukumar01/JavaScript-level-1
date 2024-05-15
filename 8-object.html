@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // creating an object
+
+      //   let myobj = {
+      //     name: "Santu",
+      //     age: 18,
+      //   };
+      //   console.log(myobj);
+
+      //   //   accessing the object
+      //   console.log(myobj.age);
+
+      //   console.log(myobj["age"]); //['string']
+
+      //   //   adding property to object
+      //   //   myobj.gender = "male";
+      //   myobj["gender"] = "male";
+      //   console.log(myobj);
+
+      //   //   deleting property
+      //   delete myobj.gender;
+      //   console.log(myobj);
+
+      //   function inside object is meythods
+      //   let product = {
+      //     name: "jeans",
+      //     price: 90,
+      //     // display: function () {
+      //     //   return `${product.price}`;
+      //     // },
+      //     // display: function () {
+      //     //   return `${this.price}`;
+      //     // },
+      //     display() {
+      //       return `${this.price}`;
+      //     },
+      //   };
+
+      //   console.log(product.display());
+
+      //   AutoBoxing  -> automatic cfhanging primitive data typre to object
+
+      //   console.log("this is string".length);
+      //   console.log(typeof "this is string");
+
+      // object ref (product is ref to exact object value)
+
+      //   let product1 = {
+      //     name: "kurta",
+      //     price: 300,
+      //   };
+
+      //   let product2 = product1;
+
+      //   product2.price = 500;
+      //   console.log(product1); //price = 500
+      //   console.log(product1, product2);
+      //   console.log(product1 === product2); // true as refrnace are copied
+
+      //   let product3 = {
+      //     name: "kurta",
+      //     price: 300,
+      //   };
+
+      //   console.log(product1 === product3); // as both ref are diffrent
+
+      let product = {
+        name: "kurta",
+        price: 300,
+      };
+
+      product.dispalyPrice = function () {
+        return `${this.price}`;
+      };
+
+      console.log(product);
+      console.log(product.dispalyPrice()); //300
+    </script>
+  </body>
+</html>
