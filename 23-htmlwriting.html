@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TodoList</title>
+
+    <style>
+      #container {
+        text-align: center;
+        height: 70vh;
+        border: 2px solid black;
+        border-radius: 20px;
+      }
+      header {
+        font-size: 30px;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+      }
+
+      /* #input-text {
+      }
+
+      #input-date {
+      }
+      #add-todo-btn {
+      } */
+      .input-class {
+        font-size: 25px;
+        border: 2px solid black;
+        border-radius: 10px;
+        padding: 5px 15px;
+        width: 25%;
+      }
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      td,
+      th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <header>Todo - List</header>
+      <hr />
+      <main>
+        <div id="input-box">
+          <input
+            type="text"
+            placeholder="Enter your Todo"
+            id="input-text"
+            class="input-class"
+          />
+          <input type="date" name="" id="input-date" class="input-class" />
+          <button id="add-todo-btn" class="input-class">Add Todo</button>
+        </div>
+        <hr />
+        <table>
+          <thead>
+            <th>Todo Name</th>
+            <th>Due Date</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </thead>
+          <tbody id="todoList"></tbody>
+        </table>
+      </main>
+      <hr />
+      <footer>This is End Footer</footer>
+    </div>
+  </body>
+  <script>
+    const inputText = document.querySelector("#input-text");
+    const inputDate = document.querySelector("#input-date");
+    const addbtn = document.querySelector("#add-todo-btn");
+
+    const todoListElement = document.querySelector("#todoList");
+
+    let todoArr = JSON.parse(localStorage.getItem("todoArr")) || [];
+
+    console.log(todoArr);
+
+    const handleDelete = (todoRow) => {
+      console.log(todoRow);
+      // todoListElement.removeChild(todoRow);
+
+      const parserTodoArr = JSON.parse(localStorage.getItem("todoArr"));
+
+      const newArr = parserTodoArr.filter((item) => {
+        if (item.textValue === todoRow) {
+          return false;
+        } else {
+          return true;
+        }
+      });
+      console.log(newArr);
+
+      localStorage.setItem("todoArr", JSON.stringify(newArr));
+      display();
+    };
+
+    const handleEdit = (todoRow) => {};
+
+    const handleAdd = () => {
+      let newTodo = {
+        textValue: inputText.value,
+        dateValue: inputDate.value,
+      };
+
+      todoArr.push(newTodo);
+      localStorage.setItem("todoArr", JSON.stringify(todoArr));
+
+      const todoRow = document.createElement("tr");
+
+      const spantext = document.createElement("td");
+      spantext.innerText = newTodo.textValue;
+
+      const dueDate = document.createElement("td");
+      dueDate.innerText = newTodo.dateValue;
+
+      const editBtn = document.createElement("td");
+      const btn1 = document.createElement("button");
+      editBtn.appendChild(btn1);
+      btn1.innerText = "Edit Todo";
+
+      btn1.addEventListener("click", () => {
+        handleEdit(spantext);
+      });
+
+      const deleteBtn = document.createElement("td");
+      const btn2 = document.createElement("button");
+      deleteBtn.appendChild(btn2);
+      btn2.innerText = "Delete Todo";
+
+      btn2.addEventListener("click", () => {
+        handleDelete(todoRow);
+      });
+
+      todoRow.appendChild(spantext);
+      todoRow.appendChild(dueDate);
+      todoRow.appendChild(editBtn);
+      todoRow.appendChild(deleteBtn);
+
+      todoListElement.appendChild(todoRow);
+
+      inputText.value = "";
+      inputDate.value = "";
+    };
+
+    const display = () => {
+      //   creating a table row
+
+      for (let i = 0; i < todoArr.length; i++) {
+        const todoRow = document.createElement("tr");
+
+        const spantext = document.createElement("td");
+        spantext.innerText = todoArr[i].textValue;
+
+        const dueDate = document.createElement("td");
+        dueDate.innerText = todoArr[i].dateValue;
+
+        const editBtn = document.createElement("td");
+        const btn1 = document.createElement("button");
+        editBtn.appendChild(btn1);
+        btn1.innerText = "Edit Todo";
+
+        btn1.addEventListener("click", () => {
+          handleEdit(todoRow);
+        });
+
+        const deleteBtn = document.createElement("td");
+        const btn2 = document.createElement("button");
+        deleteBtn.appendChild(btn2);
+        btn2.innerText = "Delete Todo";
+
+        btn2.addEventListener("click", () => {
+          handleDelete(spantext.innerText);
+        });
+
+        todoRow.appendChild(spantext);
+        todoRow.appendChild(dueDate);
+        todoRow.appendChild(editBtn);
+        todoRow.appendChild(deleteBtn);
+
+        todoListElement.appendChild(todoRow);
+
+        inputText.value = "";
+        inputDate.value = "";
+      }
+    };
+
+    display();
+    addbtn.addEventListener("click", handleAdd);
+  </script>
+</html>

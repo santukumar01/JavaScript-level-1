@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <button onclick="handeClicked()" >Click</button> -->
+    <button>Click</button>
+
+    <button
+      onclick="
+      function myfun(){
+        console.log(6);
+      }
+      myfun();
+    "
+    >
+      Click2
+    </button>
+
+    <script>
+      const handeClicked = () => {
+        console.log("i am cliked");
+      };
+      //   const handleDate = () => {
+      //     console.log(new Date());
+      //   };
+
+      const btnElement = document.querySelector("button");
+
+      //can use multiple click
+      btnElement.addEventListener("click", handeClicked);
+      btnElement.addEventListener("click", () => {
+        console.log(new Date());
+      });
+
+      //   we can also remove event
+      //   btnElement.removeEventListener("click", handleDate);
+    </script>
+  </body>
+</html>

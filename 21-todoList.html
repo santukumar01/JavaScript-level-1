@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+    <style>
+      body {
+        text-align: center;
+      }
+
+      input {
+        font-size: 20px;
+      }
+      #add-todo-btn {
+        font-size: 15px;
+        padding: 5px 5px;
+        border: 2px solid red;
+        border-radius: 10px;
+        margin: 0px 10px;
+      }
+      input {
+        padding: 5px;
+        border-radius: 10px;
+        font-weight: 500;
+      }
+      #todoList {
+        border: 2px solid black;
+        border-radius: 10px;
+        height: 500px;
+        padding: 20px;
+        text-align: center;
+        font-size: 20px;
+      }
+      .del-btn {
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Todo List</h1>
+    </header>
+
+    <main>
+      <div>
+        <input type="text" placeholder="Enter Your Todos" id="input-text" />
+        <input type="date" id="input-time" />
+        <button id="add-todo-btn">Add Todo</button>
+      </div>
+
+      <div id="todoList"></div>
+    </main>
+
+    <footer>
+      <p>this is footer</p>
+    </footer>
+  </body>
+
+  <script>
+    const todoList = document.getElementById("todoList");
+
+    const btnElemnt = document.querySelector("#add-todo-btn");
+    const inputTextElement = document.querySelector("#input-text");
+    const inputTimeElement = document.querySelector("#input-time");
+
+    const handleDelete = (todo) => {
+      todoList.removeChild(todo);
+    };
+
+    const handleClick = () => {
+      console.log("btn is clicked");
+
+      let inputValue = inputTextElement.value;
+      let inputTime = inputTimeElement.value;
+
+      const containerDiv = document.createElement("div");
+      const spanText = document.createElement("span");
+      const spanTime = document.createElement("span");
+      const deleteBtn = document.createElement("button");
+
+      deleteBtn.classList.add("del-btn");
+
+      deleteBtn.addEventListener("click", () => {
+        handleDelete(containerDiv);
+      });
+
+      deleteBtn.innerText = "Delete";
+      containerDiv.innerText = `${inputValue}  -   ${inputTime}`;
+
+      containerDiv.appendChild(deleteBtn);
+
+      todoList.appendChild(containerDiv);
+
+      inputTextElement.value = "";
+      inputTimeElement.value = "";
+    };
+
+    btnElemnt.addEventListener("click", handleClick);
+  </script>
+</html>
